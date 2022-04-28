@@ -23,10 +23,11 @@ services:
       - ./rio-de-janeiro:/rio-de-janeiro
     extra_hosts:
       - 'localhost:$DOCKERHOST'
-  nginx:
-    image: nginx
+  root:
+    build:
+      context: ./root
     volumes:
-      - ./nginx-config:/etc/nginx/templates
+      - ./root/nginx-config:/etc/nginx/templates
     ports:
       - "3000:3000"
     extra_hosts:
