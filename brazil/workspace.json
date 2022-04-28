@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "rio-de-janeiro": "apps/rio-de-janeiro",
+    "rio-de-janeiro-e2e": "apps/rio-de-janeiro-e2e"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "root": "apps/rio-de-janeiro-e2e",
+  "sourceRoot": "apps/rio-de-janeiro-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/rio-de-janeiro-e2e/cypress.json",
+        "devServerTarget": "rio-de-janeiro:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "rio-de-janeiro:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/rio-de-janeiro-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["rio-de-janeiro"]
+}
