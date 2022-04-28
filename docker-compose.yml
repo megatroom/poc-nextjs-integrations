@@ -1,0 +1,34 @@
+version: '2.2'
+
+services:
+  parana:
+    build:
+      context: ./parana
+    stdin_open: true
+    ports:
+      - 3002:3002
+    command: /bin/sh -c "yarn start"
+    volumes:
+      - ./parana:/parana
+    extra_hosts:
+      - 'localhost:$DOCKERHOST'
+  rio-de-janeiro:
+    build:
+      context: ./rio-de-janeiro
+    stdin_open: true
+    ports:
+      - 3001:3001
+    command: /bin/sh -c "yarn start"
+    volumes:
+      - ./rio-de-janeiro:/rio-de-janeiro
+    extra_hosts:
+      - 'localhost:$DOCKERHOST'
+  root:
+    build:
+      context: ./root
+    volumes:
+      - ./root/nginx-config:/etc/nginx/templates
+    ports:
+      - "3000:3000"
+    extra_hosts:
+      - 'localhost:$DOCKERHOST'
